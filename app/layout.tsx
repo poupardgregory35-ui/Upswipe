@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen bg-black`}>
+      <body className={`${inter.className} min-h-screen bg-[#0f1729]`}>
         <main className="min-h-screen relative">
           {children}
           <HomeButton />

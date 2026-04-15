@@ -112,65 +112,79 @@ export default function DashboardRecruteurPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-2xl">Chargement...</div>
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
             </div>
         )
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            <header className="bg-white shadow-sm border-b px-6 py-4">
-                <div className="max-w-7xl mx-auto flex justify-between items-center">
-                    <h1 className="text-2xl font-black text-gray-900">Dashboard Recruteur</h1>
-                    <button
-                        onClick={() => supabase.auth.signOut()}
-                        className="text-red-600 font-bold hover:underline"
-                    >
-                        Déconnexion
-                    </button>
-                </div>
-            </header>
-
-            <main className="max-w-7xl mx-auto px-6 py-8">
-                <div className="grid grid-cols-3 gap-6 mb-8">
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
+        <div>
+            {/* Stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl">📋</div>
+                    <div>
                         <div className="text-3xl font-black text-blue-600">{jobs.filter(j => j.is_active).length}</div>
-                        <div className="text-gray-600">Offres actives</div>
+                        <div className="text-slate-500 text-sm">Offres actives</div>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
+                </div>
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center text-2xl">👥</div>
+                    <div>
                         <div className="text-3xl font-black text-green-600">{applications.length}</div>
-                        <div className="text-gray-600">Candidatures reçues</div>
+                        <div className="text-slate-500 text-sm">Candidatures reçues</div>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
-                        <div className="text-3xl font-black text-orange-600">
+                </div>
+                <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-2xl">🔔</div>
+                    <div>
+                        <div className="text-3xl font-black text-orange-500">
                             {applications.filter(a => !a.viewed_by_recruiter).length}
                         </div>
-                        <div className="text-gray-600">Non lues</div>
+                        <div className="text-slate-500 text-sm">Non lues</div>
                     </div>
                 </div>
+            </div>
 
-                <section className="mb-12">
-                    <div className="flex justify-between items-center mb-6">
-                        <h2 className="text-2xl font-bold">Candidatures Reçues</h2>
-                        <button
-                            onClick={() => router.push('/recruteur/offres/nouvelle')}
-                            className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-700"
-                        >
-                            + Nouvelle offre
-                        </button>
-                    </div>
+            {/* CTA Swipe */}
+            <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl p-6 mb-8 flex items-center justify-between">
+                <div>
+                    <h2 className="text-white font-black text-xl mb-1">Découvrez de nouveaux candidats</h2>
+                    <p className="text-blue-100 text-sm">Swipez les profils qui correspondent à vos offres</p>
+                </div>
+                <button
+                    onClick={() => router.push('/recruteur/swipe')}
+                    className="bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors whitespace-nowrap"
+                >
+                    Swiper →
+                </button>
+            </div>
+
+            <section className="mb-12">
+                <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-xl font-bold text-slate-900">Candidatures Reçues</h2>
+                    <button
+                        onClick={() => router.push('/recruteur/offres/nouvelle')}
+                        className="bg-blue-600 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-blue-700 text-sm"
+                    >
+                        + Nouvelle offre
+                    </button>
+                </div>
 
                     {applications.length === 0 ? (
-                        <div className="bg-white p-12 rounded-xl shadow-sm text-center">
+                        <div className="bg-white p-12 rounded-2xl border border-slate-100 shadow-sm text-center">
                             <div className="text-6xl mb-4">📭</div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">Aucune candidature</h3>
-                            <p className="text-gray-600">Les candidats intéressés apparaîtront ici</p>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">Aucune candidature</h3>
+                            <p className="text-slate-500 mb-6">Les candidats intéressés apparaîtront ici</p>
+                            <button onClick={() => router.push('/recruteur/swipe')} className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-700">
+                                Trouver des candidats →
+                            </button>
                         </div>
                     ) : (
                         <div className="space-y-4">
                             {applications.map(app => (
-                                <div key={app.id} className="bg-white p-6 rounded-xl shadow-sm">
+                                <div key={app.id} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                                     <div className="flex items-start gap-6">
                                         {/* Photo */}
                                         <div className="flex-shrink-0">
@@ -181,8 +195,10 @@ export default function DashboardRecruteurPage() {
                                                     className="w-32 h-32 rounded-xl object-cover border-4 border-blue-100"
                                                 />
                                             ) : (
-                                                <div className="w-32 h-32 rounded-xl bg-blue-100 flex items-center justify-center text-5xl">
-                                                    👤
+                                                <div className="w-32 h-32 rounded-xl bg-slate-100 flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16 text-slate-300" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                                                    </svg>
                                                 </div>
                                             )}
                                         </div>
@@ -309,11 +325,11 @@ export default function DashboardRecruteurPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold mb-6">Mes Offres</h2>
+                    <h2 className="text-xl font-bold text-slate-900 mb-6">Mes Offres</h2>
                     {jobs.length === 0 ? (
-                        <div className="bg-white p-12 rounded-xl shadow-sm text-center">
+                        <div className="bg-white p-12 rounded-2xl border border-slate-100 shadow-sm text-center">
                             <div className="text-6xl mb-4">📝</div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">Aucune offre</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">Aucune offre publiée</h3>
                             <button
                                 onClick={() => router.push('/recruteur/offres/nouvelle')}
                                 className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-700 mt-4"
@@ -322,34 +338,33 @@ export default function DashboardRecruteurPage() {
                             </button>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {jobs.map(job => (
-                                <div key={job.id} className="bg-white p-6 rounded-xl shadow-sm">
+                                <div key={job.id} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <h3 className="text-xl font-bold">{job.title}</h3>
-                                            <p className="text-gray-500">{job.company}</p>
+                                            <h3 className="text-lg font-bold text-slate-900">{job.title}</h3>
+                                            <p className="text-slate-500 text-sm">{job.company}</p>
                                         </div>
                                         <button
                                             onClick={() => toggleJobActive(job.id, job.is_active)}
-                                            className={`px-4 py-2 rounded-full font-bold text-sm ${job.is_active
+                                            className={`px-3 py-1.5 rounded-full font-bold text-xs ${job.is_active
                                                 ? 'bg-green-100 text-green-700'
-                                                : 'bg-gray-100 text-gray-600'
+                                                : 'bg-slate-100 text-slate-500'
                                                 }`}
                                         >
-                                            {job.is_active ? '🟢 ACTIF' : '🔴 INACTIF'}
+                                            {job.is_active ? '🟢 ACTIF' : '⚫ INACTIF'}
                                         </button>
                                     </div>
-                                    <div className="flex gap-4 text-sm text-gray-600">
+                                    <div className="flex gap-4 text-sm text-slate-500">
                                         <span>👁️ {job.views || 0} vues</span>
-                                        <span>👍 {applications.filter(a => a.job_id === job.id).length} candidatures</span>
+                                        <span>👥 {applications.filter(a => a.job_id === job.id).length} candidatures</span>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     )}
                 </section>
-            </main>
         </div>
     )
 }

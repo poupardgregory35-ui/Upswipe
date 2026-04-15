@@ -81,28 +81,31 @@ export default function IdentitePage() {
 
                 {/* Photo Upload */}
                 <div className="mb-6">
-                    <label className="block text-white font-bold mb-3">Photo de profil</label>
+                    <label className="block text-white font-bold mb-1">Photo de profil</label>
+                    <p className="text-cyan-300 text-sm mb-3">📈 Les profils avec photo reçoivent 3x plus de vues</p>
                     <div className="relative">
                         {photoPreview ? (
-                            <div className="relative w-32 h-32 mx-auto">
+                            <div className="relative w-36 h-36 mx-auto">
                                 <img
                                     src={photoPreview}
                                     alt="Preview"
-                                    className="w-full h-full rounded-full object-cover"
+                                    className="w-full h-full rounded-full object-cover border-4 border-cyan-400 shadow-lg shadow-cyan-400/20"
                                 />
                                 <button
                                     onClick={() => {
                                         setPhotoFile(null)
                                         setPhotoPreview(null)
                                     }}
-                                    className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                                    className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shadow-md"
                                 >
                                     ×
                                 </button>
                             </div>
                         ) : (
-                            <label className="flex flex-col items-center justify-center w-32 h-32 mx-auto border-2 border-dashed border-white/30 rounded-full cursor-pointer hover:border-white/50">
-                                <span className="text-4xl">📸</span>
+                            <label className="flex flex-col items-center justify-center w-full py-8 border-2 border-dashed border-white/30 rounded-2xl cursor-pointer hover:border-cyan-400/60 hover:bg-white/5 transition-all group">
+                                <span className="text-5xl mb-3 group-hover:scale-110 transition-transform">📸</span>
+                                <span className="text-white font-bold">Ajouter ma photo</span>
+                                <span className="text-white/50 text-sm mt-1">JPG, PNG — max 5Mo</span>
                                 <input
                                     type="file"
                                     accept="image/*"
