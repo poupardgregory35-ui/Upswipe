@@ -15,6 +15,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col items-center md:items-start group">
             <div className="relative">
+              <h1 className="sr-only">
+                UPSWIPE – Matching recrutement ambulancier | Transport sanitaire
+              </h1>
               <Logo size="lg" />
             </div>
           </div>
