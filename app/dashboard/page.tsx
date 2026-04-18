@@ -105,7 +105,7 @@ export default function BoursePage() {
         <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center">
 
           <a
-            href="/candidate/swipe"
+            href="/candidat/swipe"
             className="block w-full bg-cyan-400 text-black px-6 py-3 rounded-xl font-bold hover:bg-cyan-500 mb-6 transition-colors shadow-sm"
           >
             Voir les offres disponibles →

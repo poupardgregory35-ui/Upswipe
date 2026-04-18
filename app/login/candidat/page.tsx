@@ -193,7 +193,7 @@ function CandidateLoginForm() {
                         <p className="text-slate-400 text-sm">
                             {isSignUp ? "Déjà un compte ? " : "Pas encore inscrit ? "}
                             <Link
-                                href={isSignUp ? "/login/candidate?view=login" : "/login/candidate?view=signup"}
+                                href={isSignUp ? "/login/candidat?view=login" : "/login/candidat?view=signup"}
                                 className="text-green-400 hover:text-green-300 font-semibold transition-colors"
                             >
                                 {isSignUp ? "Me connecter" : "Créer un profil"}

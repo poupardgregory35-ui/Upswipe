@@ -67,8 +67,8 @@ export default function LoginPage() {
                 console.log('Redirecting to -> /recruteur/dashboard')
                 router.push('/recruteur/dashboard')
             } else if (profile?.role === 'candidate') {
-                console.log('Redirecting to -> /dashboard-candidat')
-                router.push('/dashboard-candidat')
+                console.log('Redirecting to -> /candidat/dashboard')
+                router.push('/candidat/dashboard')
             } else {
                 console.log('Redirecting to -> /dashboard (Role:', profile?.role, ')')
                 router.push('/dashboard')

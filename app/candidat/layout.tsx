@@ -36,8 +36,8 @@ export default function CandidateLayout({
                 <div className="max-w-md mx-auto flex justify-between items-center text-xs font-medium">
 
 
-                    <Link href="/dashboard-candidat" className={`flex flex-col items-center gap-1 transition-colors ${isActive('/dashboard-candidat') ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-300'}`}>
-                        <Home size={24} strokeWidth={isActive('/dashboard-candidat') ? 2.5 : 2} />
+                    <Link href="/candidat/dashboard" className={`flex flex-col items-center gap-1 transition-colors ${isActive('/candidat/dashboard') ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-300'}`}>
+                        <Home size={24} strokeWidth={isActive('/candidat/dashboard') ? 2.5 : 2} />
                         <span>Dashboard</span>
                     </Link>
 

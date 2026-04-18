@@ -83,7 +83,7 @@ export default function SwipePage() {
                     <div className="text-6xl mb-4">🎯</div>
                     <h2 className="text-3xl font-bold mb-4">Tu as tout vu !</h2>
                     <button
-                        onClick={() => router.push('/dashboard-candidat')}
+                        onClick={() => router.push('/candidat/dashboard')}
                         className="bg-cyan-400 text-black font-bold px-8 py-4 rounded-xl"
                     >
                         Mes candidatures
@@ -100,7 +100,7 @@ export default function SwipePage() {
             <header className="p-4 flex justify-between items-center w-full max-w-md mx-auto">
                 <h1 className="text-2xl font-bold text-white">Swipe</h1>
                 <button
-                    onClick={() => router.push('/dashboard-candidat')}
+                    onClick={() => router.push('/candidat/dashboard')}
                     className="bg-white text-blue-600 font-bold px-4 py-2 rounded-xl shadow-lg hover:scale-105 transition"
                 >
                     📊 Mon Dashboard

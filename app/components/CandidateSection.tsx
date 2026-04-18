@@ -29,7 +29,7 @@ export function CandidateSection({ onCandidateClick }: CandidateSectionProps) {
                     qui matchent avec tes dispos et ton tarif.
                 </p>
                 <Link
-                    href="/login/candidate?view=signup"
+                    href="/login/candidat?view=signup"
                     onClick={onCandidateClick}
                     className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-green-900/30 transition-all transform hover:scale-[1.02] hover:-translate-y-1"
                 >
@@ -47,7 +47,7 @@ export function CandidateSection({ onCandidateClick }: CandidateSectionProps) {
                             Gratuit
                         </span>
                     </div>
-                    <Link href="/login/candidate?view=login" className="text-slate-400 hover:text-green-400 transition-colors underline decoration-slate-700 hover:decoration-green-400">
+                    <Link href="/login/candidat?view=login" className="text-slate-400 hover:text-green-400 transition-colors underline decoration-slate-700 hover:decoration-green-400">
                         Déjà inscrit ? Me connecter
                     </Link>
                 </div>

@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/dashboard/',
-          '/dashboard-candidat/',
+          '/candidat/',
           '/onboarding/',
           '/recruteur/',
           '/swipe/',

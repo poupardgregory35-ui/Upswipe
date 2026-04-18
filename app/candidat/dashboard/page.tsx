@@ -187,7 +187,7 @@ export default function DashboardCandidatPage() {
                             🔥 Nouvelles Offres ({newJobs.length})
                         </h2>
                         <button
-                            onClick={() => router.push('/candidate/swipe')}
+                            onClick={() => router.push('/candidat/swipe')}
                             className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold px-6 py-3 rounded-xl hover:scale-105 transition shadow-lg"
                         >
                             Swiper toutes les offres
@@ -239,7 +239,7 @@ export default function DashboardCandidatPage() {
                                 Commencez à swiper pour postuler !
                             </p>
                             <button
-                                onClick={() => router.push('/candidate/swipe')}
+                                onClick={() => router.push('/candidat/swipe')}
                                 className="bg-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-blue-700 shadow-lg"
                             >
                                 🔥 Découvrir les offres

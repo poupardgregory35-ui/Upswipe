@@ -17,7 +17,7 @@ function AuthDispatchContent() {
             try {
                 const { data: { user } } = await supabase.auth.getUser()
                 if (!user) {
-                    router.push('/login/candidate') // Default fallback
+                    router.push('/login/candidat') // Default fallback
                     return
                 }
 
@@ -74,7 +74,7 @@ function AuthDispatchContent() {
                 } else {
                     // Candidate
                     // Redirect directly to dashboard, skip onboarding check
-                    router.push('/dashboard-candidat')
+                    router.push('/candidat/dashboard')
                 }
 
             } catch (error) {

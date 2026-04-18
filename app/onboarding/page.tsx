@@ -33,7 +33,7 @@ export default function OnboardingPage() {
             if (error) throw error
 
             // Redirect based on role
-            if (role === 'candidate') router.push('/onboarding/candidate')
+            if (role === 'candidate') router.push('/onboarding/candidat')
             else router.push('/recruteur/onboarding/type')
 
         } catch (error) {

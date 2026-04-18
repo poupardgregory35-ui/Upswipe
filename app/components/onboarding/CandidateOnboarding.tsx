@@ -46,7 +46,7 @@ export function CandidateOnboarding() {
                 if (!session) {
                     const { data: { user } } = await supabase.auth.getUser()
                     if (!user) {
-                        router.push('/login/candidate?view=login')
+                        router.push('/login/candidat?view=login')
                         return
                     }
                 }
@@ -188,7 +188,7 @@ export function CandidateOnboarding() {
             console.log('✅ SAUVEGARDÉ:', data);
 
             // Redirect to Dashboard
-            router.push('/candidate/swipe')
+            router.push('/candidat/swipe')
 
         } catch (err: any) {
             console.error(err)

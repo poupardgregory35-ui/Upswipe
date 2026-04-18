@@ -133,7 +133,7 @@ export default function CandidateProfilePage() {
             localStorage.setItem('upswipe_candidate', JSON.stringify(data))
 
             // 5. Redirect
-            router.push('/candidate/swipe')
+            router.push('/candidat/swipe')
 
         } catch (error: any) {
             console.error(error)

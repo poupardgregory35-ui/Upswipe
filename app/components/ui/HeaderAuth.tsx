@@ -77,7 +77,7 @@ export function HeaderAuth() {
     return (
         <div className="flex items-center gap-4">
             <Link
-                href="/candidate/swipe"
+                href="/candidat/swipe"
                 className="flex items-center gap-2 font-bold text-slate-700 hover:text-green-600 transition-colors"
             >
                 <User size={18} />
