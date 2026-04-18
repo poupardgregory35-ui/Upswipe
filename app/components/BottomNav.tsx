@@ -9,7 +9,7 @@ export default function BottomNav() {
   const links = [
     { href: '/', icon: '🏠', label: 'Accueil' },
     { href: '/jobs', icon: '📋', label: 'Offres' },
-    { href: '/swipe', icon: '💫', label: 'Swipe' },
+    { href: '/candidat/swipe', icon: '💫', label: 'Swipe' },
     { href: '/matches', icon: '✨', label: 'Matchs' }
   ]
 

@@ -35,7 +35,7 @@ export default function BoursePage() {
         // 3. Gestion des cas limites (Profil inexistant ou incomplet)
         if (error || !data) {
           console.log("Profil non trouvé, redirection setup...");
-          router.push('/setup-profil');
+          router.push('/onboarding');
           return;
         }
 
@@ -49,7 +49,7 @@ export default function BoursePage() {
         // Si le profil existe mais n'a pas de téléphone (cas Google Login frais)
         if (!data.phone) {
           console.log("Profil incomplet (pas de tel), redirection setup...");
-          router.push('/setup-profil');
+          router.push('/onboarding');
           return;
         }
 
