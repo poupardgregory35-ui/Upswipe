@@ -44,7 +44,7 @@ export function RecruiterOnboarding() {
                 if (!session) {
                     const { data: { user } } = await supabase.auth.getUser()
                     if (!user) {
-                        router.push('/login/recruiter?view=login')
+                        router.push('/login/recruteur?view=login')
                         return
                     }
                 }
@@ -154,7 +154,7 @@ export function RecruiterOnboarding() {
             if (updateError) throw updateError
 
             // Redirect to Dashboard
-            router.push('/recruiter/dashboard')
+            router.push('/recruteur/dashboard')
 
         } catch (err: any) {
             console.error(err)

@@ -167,7 +167,7 @@ export default function RecruiterSwipePage() {
                 <Button
                     variant="ghost"
                     className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm"
-                    onClick={() => router.push('/dashboard-recruteur')}
+                    onClick={() => router.push('/recruteur/dashboard')}
                 >
                     <Briefcase className="mr-2 h-4 w-4" /> Dashboard
                 </Button>

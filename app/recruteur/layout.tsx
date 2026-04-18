@@ -64,7 +64,7 @@ export default function RecruiterLayout({
                         </div>
 
                         <nav className="hidden md:flex items-center gap-2">
-                            <NavItem href="/recruiter/dashboard" icon={LayoutDashboard} label="Tableau de bord" />
+                            <NavItem href="/recruteur/dashboard" icon={LayoutDashboard} label="Tableau de bord" />
                             <NavItem href="/recruteur/swipe" icon={Users} label="Candidats" />
                         </nav>
                     </div>

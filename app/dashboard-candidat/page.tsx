@@ -37,7 +37,7 @@ export default function DashboardCandidatPage() {
             .single()
 
         if (profileData?.role !== 'candidate') {
-            router.push('/recruiter/dashboard')
+            router.push('/recruteur/dashboard')
             return
         }
 

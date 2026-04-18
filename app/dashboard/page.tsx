@@ -42,7 +42,7 @@ export default function BoursePage() {
         // ⚠️ SWITCH RECRUTEUR (Detection automatique)
         if (data.recruiter_company_name) {
           console.log("Compte Recruteur détecté -> Redirection");
-          router.push('/recruiter/dashboard');
+          router.push('/recruteur/dashboard');
           return;
         }
 

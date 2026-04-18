@@ -54,7 +54,7 @@ export function RecruiterSection({ onRecruiterClick }: RecruiterSectionProps) {
 
                 {/* CTA principal – Dark Slate, premium */}
                 <Link
-                    href="/login/recruiter?view=signup"
+                    href="/login/recruteur?view=signup"
                     onClick={onRecruiterClick}
                     className="group relative inline-flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-900 text-white font-bold py-5 px-10 rounded-xl shadow-lg shadow-slate-900/20 transition-all transform hover:scale-[1.02] hover:-translate-y-1"
                 >
@@ -74,7 +74,7 @@ export function RecruiterSection({ onRecruiterClick }: RecruiterSectionProps) {
                             +5 000 ambulanciers
                         </span>
                     </div>
-                    <Link href="/login/recruiter?view=login" className="text-slate-500 hover:text-blue-600 transition-colors underline decoration-slate-300 hover:decoration-blue-600">
+                    <Link href="/login/recruteur?view=login" className="text-slate-500 hover:text-blue-600 transition-colors underline decoration-slate-300 hover:decoration-blue-600">
                         Espace Entreprise / Connexion
                     </Link>
                 </div>

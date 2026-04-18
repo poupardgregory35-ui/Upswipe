@@ -64,8 +64,8 @@ export default function LoginPage() {
             console.log('Profile fetched:', profile, profileError)
 
             if (profile?.role === 'recruiter') {
-                console.log('Redirecting to -> /recruiter/dashboard')
-                router.push('/recruiter/dashboard')
+                console.log('Redirecting to -> /recruteur/dashboard')
+                router.push('/recruteur/dashboard')
             } else if (profile?.role === 'candidate') {
                 console.log('Redirecting to -> /dashboard-candidat')
                 router.push('/dashboard-candidat')

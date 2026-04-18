@@ -42,7 +42,7 @@ export default function IdentitePage() {
             })
             .eq('id', user.id)
 
-        router.push('/onboarding-recruteur/besoins')
+        router.push('/recruteur/onboarding/besoins')
     }
 
     return (

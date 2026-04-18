@@ -38,7 +38,7 @@ export default function BesoinsPage() {
             })
             .eq('id', user.id)
 
-        router.push('/onboarding-recruteur/activation')
+        router.push('/recruteur/onboarding/activation')
     }
 
     return (

@@ -108,7 +108,7 @@ export default function NouvelleOffrePage() {
 
             console.log('✅ Succès:', data)
             alert('✅ Offre publiée !')
-            router.push('/recruiter/dashboard')
+            router.push('/recruteur/dashboard')
 
         } catch (err) {
             console.error('❌ CATCH:', err)
@@ -131,7 +131,7 @@ export default function NouvelleOffrePage() {
             <div className="max-w-2xl mx-auto">
                 <div className="mb-8">
                     <button
-                        onClick={() => router.push('/recruiter/dashboard')}
+                        onClick={() => router.push('/recruteur/dashboard')}
                         className="text-white hover:underline mb-4"
                     >
                         ← Retour

@@ -27,7 +27,7 @@ export default function TypePage() {
             })
             .eq('id', user.id)
 
-        router.push('/onboarding-recruteur/identite')
+        router.push('/recruteur/onboarding/identite')
     }
 
     return (

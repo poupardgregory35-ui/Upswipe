@@ -67,9 +67,9 @@ function AuthDispatchContent() {
                 // Smart Redirect
                 if (profile?.role === 'recruiter') {
                     if (profile.recruiter_onboarding_completed) {
-                        router.push('/recruiter/dashboard')
+                        router.push('/recruteur/dashboard')
                     } else {
-                        router.push('/onboarding/recruiter')
+                        router.push('/recruteur/onboarding/type')
                     }
                 } else {
                     // Candidate

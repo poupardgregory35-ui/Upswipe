@@ -35,7 +35,7 @@ export default function ActivationPage() {
             .update({ recruiter_onboarding_completed: true })
             .eq('id', user.id)
 
-        router.push('/dashboard-recruteur')
+        router.push('/recruteur/dashboard')
     }
 
     if (!profile) return null

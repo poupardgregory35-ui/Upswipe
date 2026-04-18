@@ -54,7 +54,7 @@ export default function LoginRecruiterPage() {
             }
 
             if (profile?.role === 'recruiter') {
-                router.push('/recruiter/dashboard')
+                router.push('/recruteur/dashboard')
             } else {
                 // If not recruiter, force logout and show error
                 await supabase.auth.signOut()

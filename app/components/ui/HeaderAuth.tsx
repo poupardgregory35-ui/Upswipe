@@ -48,14 +48,14 @@ export function HeaderAuth() {
         return (
             <div className="flex items-center gap-6">
                 <Link
-                    href="/recruiter/dashboard"
+                    href="/recruteur/dashboard"
                     className="flex items-center gap-2 font-bold text-slate-700 hover:text-blue-600 transition-colors"
                 >
                     <Briefcase size={18} />
                     <span className="hidden md:inline">Mes Missions</span>
                 </Link>
                 <Link
-                    href="/recruiter/dashboard"
+                    href="/recruteur/dashboard"
                     className="flex items-center gap-2 font-bold text-slate-700 hover:text-blue-600 transition-colors"
                 >
                     <LayoutDashboard size={18} />

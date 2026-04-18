@@ -23,7 +23,7 @@ export async function GET(request: Request) {
                 .single()
 
             if (profile?.role === 'recruiter') {
-                return NextResponse.redirect(new URL('/recruiter/dashboard', requestUrl.origin))
+                return NextResponse.redirect(new URL('/recruteur/dashboard', requestUrl.origin))
             } else {
                 return NextResponse.redirect(new URL('/candidate/swipe', requestUrl.origin))
             }
