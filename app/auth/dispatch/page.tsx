@@ -72,9 +72,18 @@ function AuthDispatchContent() {
                         router.push('/recruteur/onboarding/type')
                     }
                 } else {
-                    // Candidate
-                    // Redirect directly to dashboard, skip onboarding check
-                    router.push('/candidat/dashboard')
+                    // Candidate : route to onboarding if profile is incomplete,
+                    // otherwise to dashboard. We use candidate_diploma as the
+                    // primary completion marker (mandatory step 1 of the flow).
+                    const onboardingComplete =
+                        profile?.onboarding_completed === true ||
+                        Boolean(profile?.candidate_diploma)
+
+                    if (onboardingComplete) {
+                        router.push('/candidat/dashboard')
+                    } else {
+                        router.push('/onboarding/candidat')
+                    }
                 }
 
             } catch (error) {

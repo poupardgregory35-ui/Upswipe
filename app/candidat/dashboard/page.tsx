@@ -41,6 +41,18 @@ export default function DashboardCandidatPage() {
             return
         }
 
+        // Guard: if onboarding hasn't been completed (no diploma chosen yet),
+        // route the user back into the onboarding flow instead of showing an
+        // empty dashboard with a swipe page that returns 0 jobs.
+        const onboardingComplete =
+            profileData?.onboarding_completed === true ||
+            Boolean(profileData?.candidate_diploma)
+
+        if (!onboardingComplete) {
+            router.push('/onboarding/candidat')
+            return
+        }
+
         setProfile(profileData)
         setEditForm({
             full_name: profileData?.full_name || '',

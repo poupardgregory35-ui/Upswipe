@@ -1,33 +1,69 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { User, Briefcase } from 'lucide-react'
+import { toast } from 'sonner'
 
 export default function OnboardingPage() {
     const router = useRouter()
+    const supabase = createClientComponentClient()
     const [loading, setLoading] = useState(false)
+
+    // If the user is already authenticated AND already has a role,
+    // skip the role-picker and route them straight to the right place.
+    useEffect(() => {
+        const checkExisting = async () => {
+            const { data: { user } } = await supabase.auth.getUser()
+            if (!user) return // Not logged in yet, show the picker
+
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('role, candidate_diploma, recruiter_onboarding_completed, onboarding_completed')
+                .eq('id', user.id)
+                .single()
+
+            if (!profile?.role) return // No role yet, show the picker
+
+            if (profile.role === 'recruiter') {
+                router.replace(
+                    profile.recruiter_onboarding_completed
+                        ? '/recruteur/dashboard'
+                        : '/recruteur/onboarding/type'
+                )
+                return
+            }
+
+            // Candidate
+            const candidateDone =
+                profile.onboarding_completed === true ||
+                Boolean(profile.candidate_diploma)
+            router.replace(candidateDone ? '/candidat/dashboard' : '/onboarding/candidat')
+        }
+
+        checkExisting()
+    }, [supabase, router])
 
     const handleRoleSelect = async (role: 'candidate' | 'recruiter') => {
         setLoading(true)
         try {
             const { data: { user } } = await supabase.auth.getUser()
             if (!user) {
-                // Should not happen if protected, but safe guard
+                // Not authenticated yet → send to login, then bring them back.
                 router.push('/login')
                 return
             }
 
-            // Update profile with role
+            // Persist the chosen role on the profile.
             const { error } = await supabase
                 .from('profiles')
                 .upsert({
                     id: user.id,
                     email: user.email,
                     role: role,
-                    full_name: user.user_metadata.full_name || '',
-                    avatar_url: user.user_metadata.avatar_url || ''
+                    full_name: user.user_metadata?.full_name || '',
+                    avatar_url: user.user_metadata?.avatar_url || ''
                 })
 
             if (error) throw error
@@ -36,9 +72,9 @@ export default function OnboardingPage() {
             if (role === 'candidate') router.push('/onboarding/candidat')
             else router.push('/recruteur/onboarding/type')
 
-        } catch (error) {
+        } catch (error: any) {
             console.error(error)
-            alert('Erreur lors de la sélection du rôle')
+            toast.error(error?.message || 'Erreur lors de la sélection du rôle')
         } finally {
             setLoading(false)
         }
