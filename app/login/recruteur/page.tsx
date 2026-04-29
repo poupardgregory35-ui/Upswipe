@@ -54,7 +54,9 @@ export default function LoginRecruiterPage() {
             }
 
             if (profile?.role === 'recruiter') {
-                router.push('/recruteur/dashboard')
+                // Route through dispatch so an incomplete onboarding lands on
+                // /recruteur/onboarding/type instead of the empty dashboard.
+                router.push('/auth/dispatch?role=recruiter')
             } else {
                 // If not recruiter, force logout and show error
                 await supabase.auth.signOut()
