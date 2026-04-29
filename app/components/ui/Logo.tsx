@@ -3,9 +3,10 @@ interface LogoProps {
     size?: 'sm' | 'md' | 'lg'
     /**
      * Set true when rendering on a DARK background.
-     * Applies `mix-blend-screen` so the white background of the PNG asset
-     * fades into the dark page, leaving only the colored marks visible.
-     * Otherwise the logo looks like a white sticker glued onto the page.
+     * The `/gold.png` asset has a non-transparent cream/white background,
+     * so dropping it on a dark page makes it look like a sticker. Until we
+     * ship a transparent variant, the dark mode renders a typographic
+     * wordmark instead — clean, on-brand, no sticker effect.
      */
     dark?: boolean
 }
@@ -22,13 +23,46 @@ export function Logo({ className = "", size = 'md', dark = false }: LogoProps) {
 
     const { width, height } = dimensions[size]
 
+    if (dark) {
+        // Typographic wordmark for dark contexts.
+        // Sizes are tuned so the wordmark visually matches the image footprint
+        // for the same `size` prop (the consumer often centers it in a slot
+        // sized for the image).
+        const titleSize = {
+            sm: 'text-xl',
+            md: 'text-3xl',
+            lg: 'text-5xl md:text-6xl'
+        }[size]
+        const subtitleSize = {
+            sm: 'text-[8px]',
+            md: 'text-[10px]',
+            lg: 'text-xs'
+        }[size]
+        const subtitleSpacing = size === 'sm' ? 'mt-0.5' : 'mt-1.5'
+
+        return (
+            <Link
+                href="/"
+                className={`inline-flex flex-col items-center ${className} hover:opacity-80 transition-opacity`}
+                title="Retour à l'accueil"
+            >
+                <span className={`${titleSize} font-black tracking-tight text-white leading-none`}>
+                    UP<span className="text-yellow-400">SWIPE</span>
+                </span>
+                <span className={`${subtitleSize} ${subtitleSpacing} font-semibold tracking-[0.2em] text-slate-400`}>
+                    MATCHING TRANSPORT SANITAIRE
+                </span>
+            </Link>
+        )
+    }
+
     return (
         <Link href="/" className={`relative block ${className} hover:opacity-80 transition-opacity`} style={{ width, height }} title="Retour à l'accueil">
             <Image
                 src="/gold.png"
                 alt="UPSWIPE Logo"
                 fill
-                className={`object-contain ${dark ? 'mix-blend-screen' : ''}`}
+                className="object-contain"
                 priority
             />
         </Link>
