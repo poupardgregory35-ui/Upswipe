@@ -51,6 +51,29 @@ export default function RecruiterLayout({
         )
     }
 
+    // During onboarding (4 steps) we strip the layout chrome:
+    // - no top nav (would let the user escape mid-flow → broken state)
+    // - no max-w-7xl/bg-slate-50 wrapper (would create white side-bands
+    //   around the dark gradient pages)
+    // The onboarding pages render their own full-screen dark layout.
+    // We keep a tiny Logout button as a safety net.
+    const isOnboarding = pathname?.startsWith('/recruteur/onboarding') ?? false
+
+    if (isOnboarding) {
+        return (
+            <>
+                <button
+                    onClick={handleSignOut}
+                    className="fixed top-4 right-4 z-50 p-2 rounded-full bg-white/10 backdrop-blur-md text-white/70 hover:text-red-400 hover:bg-white/20 transition-all"
+                    title="Déconnexion"
+                >
+                    <LogOut size={18} />
+                </button>
+                {children}
+            </>
+        )
+    }
+
     return (
         <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
             {/* Top Navigation (Desktop/Pro Style) */}

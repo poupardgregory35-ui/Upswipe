@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { Logo } from '@/app/components/ui/Logo'
 
 const URGENCES = [
     { id: 'immediate', emoji: '⚡️', label: 'Immédiat', sublabel: '<7 jours' },
@@ -44,6 +45,9 @@ export default function BesoinsPage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-900 to-gray-900 flex items-center justify-center p-6">
             <div className="max-w-md w-full">
+                <div className="flex justify-center mb-6">
+                    <Logo size="md" dark />
+                </div>
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-black text-white mb-2">Vos besoins</h1>
                     <div className="flex justify-center gap-2 mt-4">
@@ -77,7 +81,10 @@ export default function BesoinsPage() {
                         ))}
                     </div>
                     {selectedDiplomas.length === 0 && (
-                        <p className="text-red-400 text-sm mt-2">⚠️ Cochez au moins 1 profil</p>
+                        // Neutral helper, not a scolding red warning. Button stays
+                        // disabled until at least one diploma is selected, which
+                        // is the real signal — we just need the user to know why.
+                        <p className="text-slate-400 text-sm mt-2">Sélectionne au moins 1 profil pour continuer</p>
                     )}
                 </div>
 

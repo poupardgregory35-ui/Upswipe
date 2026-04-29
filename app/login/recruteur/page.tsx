@@ -78,7 +78,7 @@ export default function LoginRecruiterPage() {
 
             <div className="w-full max-w-md z-10">
                 <div className="flex justify-center mb-8">
-                    <Logo size="lg" />
+                    <Logo size="lg" dark />
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-xl">
