@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Home, User, Briefcase, Settings, LogOut } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-browser'
 import { useRouter } from 'next/navigation'
 
 export default function CandidateLayout({
@@ -11,6 +11,7 @@ export default function CandidateLayout({
 }: {
     children: React.ReactNode
 }) {
+    const supabase = createClient()
     const pathname = usePathname()
     const router = useRouter()
 

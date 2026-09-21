@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Logo } from '@/app/components/ui/Logo'
 import { LayoutDashboard, Users, UserCircle, LogOut } from 'lucide-react'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-browser'
 import { useRouter } from 'next/navigation'
 
 export default function RecruiterLayout({
@@ -13,6 +13,7 @@ export default function RecruiterLayout({
 }: {
     children: React.ReactNode
 }) {
+    const supabase = createClient()
     const pathname = usePathname()
     const [companyName, setCompanyName] = useState<string>('Entreprise')
     const router = useRouter()
