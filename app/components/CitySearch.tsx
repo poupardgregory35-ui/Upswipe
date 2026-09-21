@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 
 interface City {
     id: number
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function CitySearch({ onSelect, selectedCity }: Props) {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [search, setSearch] = useState('')
     const [results, setResults] = useState<City[]>([])
     const [isOpen, setIsOpen] = useState(false)

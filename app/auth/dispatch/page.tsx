@@ -2,12 +2,12 @@
 
 import { useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 function AuthDispatchContent() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
     const searchParams = useSearchParams()
     const roleParam = searchParams.get('role') // 'candidate' or 'recruiter'

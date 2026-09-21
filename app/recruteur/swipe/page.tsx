@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/app/components/ui/Button'
 import { Logo } from '@/app/components/ui/Logo'
 import { motion, AnimatePresence } from 'framer-motion'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { MapPin, Clock, Award, X, Heart, Play, Volume2, VolumeX, Briefcase, Filter } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { RecruiterBackground } from '@/app/components/ui/RecruiterBackground'
@@ -12,7 +12,7 @@ import { MatchModal } from '@/app/components/ui/MatchModal'
 
 export default function RecruiterSwipePage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [candidates, setCandidates] = useState<any[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState<'left' | 'right' | null>(null)

@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Loader2, Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react'
 import { Logo } from '@/app/components/ui/Logo'
 import Link from 'next/link'
 
 export default function LoginRecruiterPage() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')

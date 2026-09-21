@@ -1,11 +1,11 @@
 'use client'
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function SwipePage() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
     const [jobs, setJobs] = useState<any[]>([])
     const [currentIndex, setCurrentIndex] = useState(0)

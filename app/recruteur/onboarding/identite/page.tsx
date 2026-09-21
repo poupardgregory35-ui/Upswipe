@@ -2,14 +2,14 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Loader2, MapPin } from 'lucide-react'
 import { toast } from 'sonner'
 import { Logo } from '@/app/components/ui/Logo'
 
 export default function IdentitePage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [companyName, setCompanyName] = useState('')
     const [city, setCity] = useState('') // Display string "75001 - Paris"
     const [cityId, setCityId] = useState<number | null>(null) // Resolved villes_france.id

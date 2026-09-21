@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Loader2 } from 'lucide-react'
 import { Logo } from '@/app/components/ui/Logo'
 
 export default function ActivationPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [profile, setProfile] = useState<any>(null)
     // When true we display the welcome transition screen for ~2.2s before
     // sending the user to the dashboard. Softens the dark→light jump and

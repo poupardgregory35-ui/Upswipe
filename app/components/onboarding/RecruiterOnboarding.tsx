@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ChevronRight, ChevronLeft, Building2, Car, Truck, Stethoscope,
@@ -16,7 +16,7 @@ type CompanyType = 'pme' | 'smur' | 'groupe' | 'vsl'
 type Urgency = 'immediate' | 'urgent' | 'planned'
 
 export function RecruiterOnboarding() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
 
     // Global State

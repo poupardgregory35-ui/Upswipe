@@ -5,12 +5,13 @@ import { Card } from '@/app/components/ui/Card'
 import { Button } from '@/app/components/ui/Button'
 import { Logo } from '@/app/components/ui/Logo'
 import { motion } from 'framer-motion'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-browser'
 import { Building2, MapPin, Briefcase, Euro, Phone, Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { RecruiterBackground } from '@/app/components/ui/RecruiterBackground'
 
 export default function RecruiterOfferPage() {
+    const supabase = createClient()
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
