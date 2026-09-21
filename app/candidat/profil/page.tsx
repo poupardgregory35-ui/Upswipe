@@ -5,12 +5,13 @@ import { Card } from '@/app/components/ui/Card'
 import { Button } from '@/app/components/ui/Button'
 import { Logo } from '@/app/components/ui/Logo'
 import { motion } from 'framer-motion'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-browser'
 import { User, MapPin, Scale, Clock, Award, Video, Camera, Play, X, Loader2, FileText, Upload } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { CandidateBackground } from '@/app/components/ui/CandidateBackground'
 
 export default function CandidateProfilePage() {
+    const supabase = createClient()
     const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [step, setStep] = useState(1)
