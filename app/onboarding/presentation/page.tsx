@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 
 type PresentationType = 'cv' | 'video' | 'text'
 
 export default function PresentationPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [selectedType, setSelectedType] = useState<PresentationType>('text')
     const [cvFile, setCvFile] = useState<File | null>(null)
     const [videoBlob, setVideoBlob] = useState<Blob | null>(null)

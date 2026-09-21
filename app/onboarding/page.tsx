@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { User, Briefcase } from 'lucide-react'
 import { toast } from 'sonner'
 
 export default function OnboardingPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [loading, setLoading] = useState(false)
 
     // If the user is already authenticated AND already has a role,

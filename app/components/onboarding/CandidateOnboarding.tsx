@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ChevronRight, ChevronLeft, Upload, Video, Type,
@@ -15,7 +15,7 @@ type OnboardingStep = 1 | 2 | 3 | 4 | 5
 type PresentationType = 'cv' | 'video' | 'text'
 
 export function CandidateOnboarding() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
 
     // Global State

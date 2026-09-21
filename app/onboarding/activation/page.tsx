@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 
 export default function ActivationPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [profile, setProfile] = useState<any>(null)
 
     useEffect(() => {

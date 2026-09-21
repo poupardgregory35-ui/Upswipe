@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 
 export default function DiplomePage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
 
     const saveDiploma = async (diploma: 'DEA' | 'Auxiliaire') => {
         const { data: { user } } = await supabase.auth.getUser()

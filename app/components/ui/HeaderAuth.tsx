@@ -1,13 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import Link from 'next/link'
 import { User, LogOut, Briefcase, LayoutDashboard } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 export function HeaderAuth() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
     const [user, setUser] = useState<any>(null)
     const [role, setRole] = useState<string | null>(null)

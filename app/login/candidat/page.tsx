@@ -2,14 +2,14 @@
 
 import { useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Logo } from '@/app/components/ui/Logo'
 import Link from 'next/link'
 import { Loader2, Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react'
 import { toast } from 'sonner'
 
 function CandidateLoginForm() {
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const router = useRouter()
     const searchParams = useSearchParams()
     const view = searchParams.get('view') || 'login' // 'login' or 'signup'

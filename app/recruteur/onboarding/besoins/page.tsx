@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { Logo } from '@/app/components/ui/Logo'
 
 const URGENCES = [
@@ -13,7 +13,7 @@ const URGENCES = [
 
 export default function BesoinsPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [selectedDiplomas, setSelectedDiplomas] = useState<string[]>([])
     const [selectedUrgency, setSelectedUrgency] = useState<string>('urgent')
 

@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase-browser'
 import { useRouter } from 'next/navigation'
 
 export default function DashboardCandidatPage() {
     const router = useRouter()
-    const supabase = createClientComponentClient()
+    const supabase = createClient()
     const [profile, setProfile] = useState<any>(null)
     const [applications, setApplications] = useState<any[]>([])
     const [newJobs, setNewJobs] = useState<any[]>([])

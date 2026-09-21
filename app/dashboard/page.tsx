@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/lib/supabase-browser';
 import { useRouter } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
 export default function BoursePage() {
-  const supabase = createClientComponentClient();
+  const supabase = createClient();
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
