@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     typescript: {
-        // ⚠️ CRITIQUE POUR DÉPLOYER MAINTENANT : Ignore les erreurs de type
-        ignoreBuildErrors: true,
+        ignoreBuildErrors: false,
     },
     eslint: {
         // Ignore les erreurs de style pour le build

@@ -34,6 +34,10 @@ export function FilterPanel({ isOpen, onClose, onApply }: FilterPanelProps) {
         if (!user) return
 
         // Fetch Profile
+        // .single<T>() overrides Supabase's inferred type: without a generated
+        // DB schema it defaults embedded relations to arrays, but
+        // candidate_city_id is a simple FK (to-one), so PostgREST actually
+        // returns a single object here at runtime.
         const { data: profile } = await supabase
             .from('profiles')
             .select(`
@@ -43,7 +47,12 @@ export function FilterPanel({ isOpen, onClose, onApply }: FilterPanelProps) {
                 villes_france!candidate_city_id (department_code)
             `)
             .eq('id', user.id)
-            .single()
+            .single<{
+                candidate_geo_filter: GeoFilter | null
+                candidate_preferred_cities: number[] | null
+                candidate_city_id: number | null
+                villes_france: { department_code: string } | null
+            }>()
 
         if (profile) {
             setGeoFilter(profile.candidate_geo_filter || 'region')
