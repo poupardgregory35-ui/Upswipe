@@ -9,13 +9,15 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     images: {
-        domains: ['vlbfslogtqrickmndcsw.supabase.co'], // Replace with your actual Supabase project ID if different, or use a wildcard pattern if needed for diverse sources
         remotePatterns: [
             {
                 protocol: 'https',
                 hostname: '**.supabase.co',
             },
         ],
+    },
+    compiler: {
+        removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
     },
 }
 

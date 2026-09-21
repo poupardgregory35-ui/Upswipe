@@ -40,60 +40,22 @@ export default function DashboardRecruteurPage() {
             .eq('recruiter_id', user.id)
             .order('created_at', { ascending: false })
 
-        console.log('📌 Offres du recruteur:', jobsData)
         setJobs(jobsData || [])
 
-        // Candidatures avec requête simple
+        // Candidatures reçues sur ces offres, avec profil candidat et offre
+        // liée récupérés en une seule requête via les jointures Supabase
+        // (au lieu de 3 requêtes séquentielles + reconstruction en JS).
         if (jobsData && jobsData.length > 0) {
             const jobIds = jobsData.map(j => j.id)
 
-            console.log('🔍 Job IDs recherchés:', jobIds)
-
-            // Test 1: Requête simple sans filtre
-            const { data: allApps, error: allAppsError } = await supabase
-                .from('applications')
-                .select('*')
-
-            console.log('📋 TOUTES les applications en BDD:', allApps, allAppsError)
-
-            // Test 2: Requête avec filtre
             const { data: appsData, error: appsError } = await supabase
                 .from('applications')
-                .select('*')
+                .select('*, profiles:candidate_id (*), jobs:job_id (*)')
                 .in('job_id', jobIds)
+                .order('created_at', { ascending: false })
 
-            console.log('📥 Applications filtrées:', appsData, appsError)
-            console.log('📊 Comparaison:', {
-                'IDs recherchés': jobIds,
-                'Applications trouvées': appsData?.map(a => ({ job_id: a.job_id, candidate_id: a.candidate_id }))
-            })
-
-            // Charger les détails candidats séparément
-            if (appsData && appsData.length > 0) {
-                const candidateIds = appsData.map(a => a.candidate_id)
-
-                const { data: profilesData } = await supabase
-                    .from('profiles')
-                    .select('*')
-                    .in('id', candidateIds)
-
-                const { data: jobsDataForApps } = await supabase
-                    .from('jobs')
-                    .select('*')
-                    .in('id', appsData.map(a => a.job_id))
-
-                // Enrichir les applications
-                const enrichedApps = appsData.map(app => ({
-                    ...app,
-                    profiles: profilesData?.find(p => p.id === app.candidate_id),
-                    jobs: jobsDataForApps?.find(j => j.id === app.job_id)
-                }))
-
-                console.log('✅ Applications enrichies:', enrichedApps)
-                setApplications(enrichedApps)
-            } else {
-                setApplications([])
-            }
+            if (appsError) console.error('Erreur chargement candidatures:', appsError)
+            setApplications(appsData || [])
         } else {
             setApplications([])
         }

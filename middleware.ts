@@ -10,5 +10,15 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+    // Limité aux routes qui dépendent réellement d'une session (l'app est
+    // en 'use client' et revérifie déjà l'auth côté client sur ces pages).
+    // Les pages publiques (accueil, login, signup, assets) n'ont pas besoin
+    // de ce round-trip Supabase à chaque navigation.
+    matcher: [
+        '/candidat/:path*',
+        '/recruteur/:path*',
+        '/dashboard/:path*',
+        '/onboarding/:path*',
+        '/auth/:path*',
+    ],
 }
