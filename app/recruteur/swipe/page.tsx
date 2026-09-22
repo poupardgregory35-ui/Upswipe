@@ -257,7 +257,7 @@ export default function RecruiterSwipePage() {
                                             {currentCandidate.full_name || "Candidat"}, <span className="text-slate-400 font-normal">{currentCandidate.age || 28}</span>
                                         </h2>
                                         <p className="text-slate-500 text-sm line-clamp-2 leading-relaxed mb-3">
-                                            "{currentCandidate.description || "Disponible immédiatement."}"
+                                            "{currentCandidate.description || "À l'écoute."}"
                                         </p>
 
                                         <div className="flex gap-2">
@@ -265,7 +265,7 @@ export default function RecruiterSwipePage() {
                                                 <MapPin size={12} /> {currentCandidate.candidate_city || currentCandidate.city || "France"}
                                             </div>
                                             <div className="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 flex items-center gap-1.5">
-                                                <Clock size={12} /> {currentCandidate.is_available ? "Dispo" : "En poste"}
+                                                <Clock size={12} /> {currentCandidate.is_available ? "À l'écoute" : "Pas à l'écoute"}
                                             </div>
                                         </div>
                                     </div>

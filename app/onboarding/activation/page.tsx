@@ -86,7 +86,7 @@ export default function ActivationPage() {
                     onClick={activate}
                     className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-black py-6 rounded-2xl text-xl hover:scale-105 transition-transform shadow-2xl"
                 >
-                    ✓ JE SUIS DISPO
+                    ✓ À L'ÉCOUTE D'UNE OPPORTUNITÉ
                 </button>
 
                 <p className="text-center text-gray-400 text-sm mt-4">

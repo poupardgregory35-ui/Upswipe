@@ -48,8 +48,8 @@ export function RecruiterSection({ onRecruiterClick }: RecruiterSectionProps) {
 
                 {/* Description */}
                 <p className="text-lg text-slate-600 leading-relaxed mb-10">
-                    Publiez une mission en 2 minutes. Visualisez les profils vérifiés en temps réel,
-                    géolocalisés et prêts à intervenir.
+                    Publiez une offre en 2 minutes. Visualisez les profils vérifiés en temps réel,
+                    géolocalisés et à l'écoute d'une opportunité.
                 </p>
 
                 {/* CTA principal – Dark Slate, premium */}
@@ -58,7 +58,7 @@ export function RecruiterSection({ onRecruiterClick }: RecruiterSectionProps) {
                     onClick={onRecruiterClick}
                     className="group relative inline-flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-900 text-white font-bold py-5 px-10 rounded-xl shadow-lg shadow-slate-900/20 transition-all transform hover:scale-[1.02] hover:-translate-y-1"
                 >
-                    Publier une mission
+                    Publier une offre
                     <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
 

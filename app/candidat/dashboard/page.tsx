@@ -158,7 +158,7 @@ export default function DashboardCandidatPage() {
                         </div>
 
                         <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-100">
-                            <div className="text-sm font-medium text-blue-700 mb-1">Disponibilité</div>
+                            <div className="text-sm font-medium text-blue-700 mb-1">Mobilité</div>
                             <button
                                 onClick={async () => {
                                     const newStatus = !profile.is_available
@@ -173,7 +173,7 @@ export default function DashboardCandidatPage() {
                                     : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
                                     }`}
                             >
-                                {profile.is_available ? '✅ DISPONIBLE' : '❌ NON DISPONIBLE'}
+                                {profile.is_available ? "✅ À L'ÉCOUTE D'UNE OPPORTUNITÉ" : "❌ PAS À L'ÉCOUTE POUR L'INSTANT"}
                             </button>
                         </div>
                     </div>
@@ -213,7 +213,7 @@ export default function DashboardCandidatPage() {
                                 Aucune nouvelle offre
                             </h3>
                             <p className="text-gray-600">
-                                Vous avez vu toutes les offres disponibles !
+                                Vous avez vu toutes les opportunités du moment !
                             </p>
                         </div>
                     ) : (

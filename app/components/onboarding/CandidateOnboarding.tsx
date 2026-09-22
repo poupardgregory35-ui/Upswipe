@@ -494,7 +494,7 @@ export function CandidateOnboarding() {
                                             }`}
                                     >
                                         <span className={`font-bold ${isAvailable ? 'text-green-400' : 'text-neutral-400'}`}>
-                                            {isAvailable ? '✅  JE SUIS DISPONIBLE' : '❌  NON DISPONIBLE'}
+                                            {isAvailable ? "✅  À L'ÉCOUTE D'UNE OPPORTUNITÉ" : '❌  PAS À L\'ÉCOUTE POUR L\'INSTANT'}
                                         </span>
                                         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${isAvailable ? 'border-green-500 bg-green-500' : 'border-neutral-500'}`}>
                                             {isAvailable && <CheckCircle2 size={14} className="text-black" />}

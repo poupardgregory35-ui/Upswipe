@@ -52,7 +52,7 @@ export function HeaderAuth() {
                     className="flex items-center gap-2 font-bold text-slate-700 hover:text-blue-600 transition-colors"
                 >
                     <Briefcase size={18} />
-                    <span className="hidden md:inline">Mes Missions</span>
+                    <span className="hidden md:inline">Mes offres</span>
                 </Link>
                 <Link
                     href="/recruteur/dashboard"

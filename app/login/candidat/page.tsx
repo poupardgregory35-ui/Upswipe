@@ -111,7 +111,7 @@ function CandidateLoginForm() {
                         {isSignUp ? 'Créer mon profil' : 'Connexion Candidat'}
                     </h1>
                     <p className="text-slate-400 text-center mb-8 text-sm">
-                        {isSignUp ? 'Commencez par sécuriser votre compte' : 'Accédez à vos missions'}
+                        {isSignUp ? 'Commencez par sécuriser votre compte' : 'Accédez à vos opportunités'}
                     </p>
 
                     <button

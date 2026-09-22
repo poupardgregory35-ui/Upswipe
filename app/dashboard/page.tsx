@@ -108,7 +108,7 @@ export default function BoursePage() {
             href="/candidat/swipe"
             className="block w-full bg-cyan-400 text-black px-6 py-3 rounded-xl font-bold hover:bg-cyan-500 mb-6 transition-colors shadow-sm"
           >
-            Voir les offres disponibles →
+            Voir les opportunités du moment →
           </a>
 
           <p className="text-gray-600 mb-4 font-medium">Ta visibilité actuelle :</p>
@@ -128,10 +128,10 @@ export default function BoursePage() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
                   </span>
-                  JE SUIS DISPONIBLE
+                  À L'ÉCOUTE D'UNE OPPORTUNITÉ
                 </>
               ) : (
-                '⛔ JE NE CHERCHE PLUS'
+                "⛔ PAS À L'ÉCOUTE POUR L'INSTANT"
               )
             )}
           </button>

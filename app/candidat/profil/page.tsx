@@ -314,7 +314,7 @@ export default function CandidateProfilePage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-bold text-purple-300">Disponibilités</label>
+                                    <label className="text-sm font-bold text-purple-300">Rythme souhaité</label>
                                     <div className="flex bg-black/50 rounded-xl p-1 border border-white/10">
                                         {['jour', 'nuit', 'mixte'].map(s => (
                                             <button

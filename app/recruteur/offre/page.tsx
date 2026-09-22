@@ -118,7 +118,7 @@ export default function RecruiterOfferPage() {
             >
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">Espace Recruteur</h1>
-                    <p className="text-slate-400">Configurez votre offre de mission</p>
+                    <p className="text-slate-400">Configurez votre offre</p>
                 </div>
 
                 <Card variant="solid" className="p-6 backdrop-blur-xl bg-white border border-slate-100 shadow-xl">

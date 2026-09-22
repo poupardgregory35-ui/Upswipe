@@ -112,7 +112,7 @@ export default function RecruiterMatchesPage() {
                                             <MapPin size={12} /> {match.candidate?.zone_city} ({match.candidate?.zone_radius_km}km)
                                         </div>
                                         <div className="flex items-center gap-1.5 text-slate-500 text-xs font-medium">
-                                            <Clock size={12} /> Dispo: {match.candidate?.availability?.[0]}
+                                            <Clock size={12} /> Rythme : {match.candidate?.availability?.[0]}
                                         </div>
                                     </div>
                                 </div>

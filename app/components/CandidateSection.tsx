@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ChevronRight, Clock, ShieldCheck, Smartphone } from 'lucide-react'
+import { ChevronRight, Smartphone } from 'lucide-react'
 
 interface CandidateSectionProps {
     onCandidateClick?: () => void
@@ -25,8 +25,8 @@ export function CandidateSection({ onCandidateClick }: CandidateSectionProps) {
                     </span>
                 </h2>
                 <p className="text-lg text-slate-400 leading-relaxed mb-10">
-                    Crée ton profil en 60 secondes. Active ta position et reçois des missions
-                    qui matchent avec tes dispos et ton tarif.
+                    Crée ton profil en 60 secondes. Découvre les entreprises et les opportunités
+                    qui correspondent vraiment à ce que tu recherches.
                 </p>
                 <Link
                     href="/login/candidat?view=signup"
@@ -37,16 +37,7 @@ export function CandidateSection({ onCandidateClick }: CandidateSectionProps) {
                     <ChevronRight className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <div className="mt-8 flex flex-col items-center justify-center md:items-start md:justify-start gap-4 text-sm text-slate-500 font-medium">
-                    <div className="flex gap-6">
-                        <span className="flex items-center gap-2">
-                            <Clock size={16} className="text-green-500" />
-                            Inscription 2 min
-                        </span>
-                        <span className="flex items-center gap-2">
-                            <ShieldCheck size={16} className="text-green-500" />
-                            Gratuit
-                        </span>
-                    </div>
+                    <span>Gratuit • Simple • Confidentiel</span>
                     <Link href="/login/candidat?view=login" className="text-slate-400 hover:text-green-400 transition-colors underline decoration-slate-700 hover:decoration-green-400">
                         Déjà inscrit ? Me connecter
                     </Link>
